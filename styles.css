@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --almost-white: hsl(0, 0%, 98%);
+  --medium-gray: hsl(0, 0%, 41%);
+  --almost-black: hsl(0, 0%, 8%);
+}
+
+body {
+  background-color: var(--almost-white);
+  font-family: "Epilogue", sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+nav {
+  width: 100%;
+  padding: 1.5rem 1rem;
+}
+
+.nav-logo-menu-bar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav-menu {
+  position: absolute;
+  height: 100vh;
+  background-color: pink;
+  color: var(--medium-gray);
+  top: 0;
+  right: 0;
+  width: 65%;
+  padding: 1rem;
+  text-align: left;
+}
+
+.nav-menu .close-menu-icon {
+  text-align: right;
+}
+
+.nav-menu-item-container {
+  padding: 1.5rem 0.5rem;
+}
+
+.features,
+.company {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.arrow-img {
+  width: 10px;
+  background-image: url(images/icon-arrow-down.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-left: 1rem;
+}
+
+.nav-item {
+  margin-bottom: 1rem;
+}
+
+.login-register-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-btn,
+.register-btn {
+  font-family: "Epilogue", sans-serif;
+  background-color: transparent;
+  color: var(--medium-gray);
+  padding: 0.8rem 0;
+}
+
+.login-btn {
+  border: none;
+}
+
+.register-btn {
+  border-radius: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+/*# sourceMappingURL=styles.css.map */
