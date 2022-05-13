@@ -23,7 +23,12 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
+}
+.overlay.open {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 nav {
   width: 100%;
@@ -36,10 +41,13 @@ nav {
   justify-content: space-between;
 }
 
+/* Nav Menu on mobile*/
+
 .nav-menu {
   position: absolute;
+  z-index: 2;
   height: 100vh;
-  background-color: pink;
+  background-color: var(--almost-white);
   color: var(--medium-gray);
   top: 0;
   right: 0;
@@ -52,7 +60,7 @@ nav {
 }
 
 .nav-menu-item-container {
-  padding: 1.5rem 0.5rem;
+  padding: 1.5rem 0.5rem 0 0.5rem;
 }
 
 .features,
@@ -68,9 +76,54 @@ nav {
   background-size: contain;
   margin-left: 1rem;
 }
-.nav-item {
-  margin-bottom: 1rem;
+
+.arrow-img.open {
+  background-image: url(images/icon-arrow-up.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
+.nav-item {
+  margin-bottom: 1.5rem;
+  &:hover {
+    cursor: pointer;
+    color: var(--almost-black);
+  }
+}
+
+/* Features and Company Expanded Menu */
+
+.features-expanded-list,
+.company-expanded-list {
+  overflow-y: hidden;
+  max-height: 0;
+  transition: all 0.25s;
+}
+
+.features-expanded-list.open,
+.company-expanded-list.open {
+  max-height: 200px;
+  transition: all 0.4s;
+  margin: 0.5rem 1.5rem;
+}
+.features-item,
+.company-item {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.features-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.company-item {
+  margin-bottom: 1.5rem;
+}
+
+/*  Login and Register  */
 .login-register-container {
   display: flex;
   flex-direction: column;
@@ -81,13 +134,83 @@ nav {
   background-color: transparent;
   color: var(--medium-gray);
   padding: 0.8rem 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .login-btn {
   border: none;
 }
 .register-btn {
   border-radius: 1rem;
+  border: 2px solid var(--medium-gray);
 }
+
+/* Mobile Site */
+
+.illustration {
+  width: 100%;
+  height: 300px;
+  background-image: url(images/image-hero-mobile.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.main-content {
+  padding: 1rem;
+  .main-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+
+    margin: 2rem 0 1.5rem 0;
+  }
+  .description {
+    color: var(--medium-gray);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .learn-more-btn {
+    color: var(--almost-white);
+    background-color: var(--almost-black);
+    font-family: "Epilogue", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.9rem 1.5rem;
+    margin-bottom: 2rem;
+    &:hover {
+      cursor: pointer;
+      background-color: var(--almost-white);
+      color: var(--almost-black);
+      border: 1px solid var(--almost-black);
+      transition: all 0.3ms ease-out;
+    }
+  }
+}
+
+.client-section {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  .databiz-logo {
+    width: 20%;
+  }
+  .audiophile-logo {
+    width: 15%;
+  }
+  .meet-logo {
+    width: 18%;
+  }
+  .maker-logo {
+    width: 18%;
+  }
+}
+
 .hidden {
   display: none;
 }
@@ -98,4 +221,143 @@ nav {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 1440px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    .nav-logo-menu-bar {
+      width: fit-content;
+      .menu-bar {
+        display: none;
+      }
+    }
+    padding: 2rem 3rem;
+
+    .nav-menu {
+      width: 100%;
+      position: relative;
+      height: fit-content;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+
+      .close-menu-icon {
+        display: none;
+      }
+      .nav-menu-item-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0;
+        padding-top: 0.2rem;
+        margin-left: 2rem;
+        .arrow-img {
+          background-position: top left;
+          margin-left: 0.5rem;
+          margin-top: 0.3rem;
+        }
+        .arrow-img.open {
+          background-position: top left;
+        }
+        .features-expanded-list,
+        .company-expanded-list {
+          display: none;
+        }
+        .features-expanded-list.open {
+          display: inline;
+          position: absolute;
+          top: 3rem;
+          left: -3rem;
+          border-radius: 0.5rem;
+          background-color: var(--almost-white);
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          padding: 1.5rem 1.5rem 0 1.5rem;
+          margin: 0;
+        }
+        .company-expanded-list.open {
+          display: inline;
+          position: absolute;
+          background-color: var(--almost-white);
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          left: 10rem;
+          top: 3rem;
+          border-radius: 0.5rem;
+          padding: 1.5rem 1.5rem 0 1.5rem;
+          margin: 0;
+        }
+      }
+      .login-register-container {
+        flex-direction: row;
+        gap: 1rem;
+        margin-left: auto;
+        .login-btn,
+        .register-btn {
+          padding: 0.8rem 1.3rem;
+        }
+      }
+    }
+  }
+
+  .grid-container {
+    display: grid;
+    // height: fit-content;
+    grid-template-columns: 1fr 490px;
+    grid-template-areas:
+      "main illustration"
+      "client illustration";
+    gap: 8rem;
+    margin: 0 7.5rem 0 10.5rem;
+  }
+  .illustration {
+    background-image: url(images/image-hero-desktop.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    grid-area: illustration;
+    height: 100%;
+  }
+  .main-content {
+    grid-area: main;
+    text-align: left;
+    .main-heading {
+      font-size: 4.75rem;
+      margin-top: 5rem;
+      margin-bottom: 3.5rem;
+      span {
+        display: block;
+      }
+    }
+    .description {
+      font-size: 1.1rem;
+      padding-right: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .learn-more-btn {
+      font-size: 1.2rem;
+      padding: 1.2rem 2rem;
+      margin-bottom: 6.5rem;
+    }
+  }
+  .client-section {
+    grid-area: client;
+    gap: 2rem;
+    justify-content: space-between;
+    .audiophile-logo {
+      width: 14%;
+    }
+    .meet-logo {
+      width: 18%;
+    }
+    .maker-logo {
+      width: 18%;
+    }
+  }
 }

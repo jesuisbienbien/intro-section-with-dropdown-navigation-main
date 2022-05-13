@@ -24,6 +24,7 @@
   <body>
     <main>
       <!-- Navigation bar -->
+      <div class="overlay"></div>
       <nav>
         <div class="nav-logo-menu-bar">
           <div class="logo">
@@ -49,7 +50,7 @@
               <div class="arrow-img"></div>
             </div>
 
-            <div class="features-expanded-list hidden">
+            <div class="features-expanded-list">
               <div class="features-item-container">
                 <img
                   src="images/icon-todo.svg"
@@ -90,7 +91,7 @@
               <div class="arrow-img"></div>
             </div>
 
-            <div class="company-expanded-list hidden">
+            <div class="company-expanded-list">
               <p class="company-item">History</p>
               <p class="company-item">Our Team</p>
               <p class="company-item">Blog</p>
@@ -114,26 +115,33 @@
 
         <!-- Hidden on Mobile section ends here -->
       </nav>
+      <div class="grid-container">
+        <!-- Illustration -->
+        <div class="illustration"></div>
 
-      <!-- Illustration -->
-      <div class="illustration"></div>
+        <div class="left-container">
+          <!-- Main content -->
+          <div class="main-content">
+            <h1 class="main-heading"><span>Make</span> remote work</h1>
+            <p class="description">
+              Get your team in sync, no matter your location. Streamline
+              processes, create team rituals, and watch productivity soar.
+            </p>
+            <button class="learn-more-btn">Learn more</button>
+          </div>
 
-      <!-- Main content -->
-      <div class="main-content">
-        <h1 class="main-heading">Make remote work</h1>
-        <p class="description">
-          Get your team in sync, no matter your location. Streamline processes,
-          create team rituals, and watch productivity soar.
-        </p>
-        <button class="learn-more-btn">Learn more</button>
-      </div>
-
-      <!-- Clients -->
-      <div class="client-section">
-        <img src="images/client-databiz.svg" alt="" class="client-logo" />
-        <img src="images/client-audiophile.svg" alt="" class="client-logo" />
-        <img src="images/client-meet.svg" alt="" class="client-logo" />
-        <img src="images/client-maker.svg" alt="" class="client-logo" />
+          <!-- Clients -->
+          <div class="client-section">
+            <img src="images/client-databiz.svg" alt="" class="databiz-logo" />
+            <img
+              src="images/client-audiophile.svg"
+              alt=""
+              class="audiophile-logo"
+            />
+            <img src="images/client-meet.svg" alt="" class="meet-logo" />
+            <img src="images/client-maker.svg" alt="" class="maker-logo" />
+          </div>
+        </div>
       </div>
     </main>
 

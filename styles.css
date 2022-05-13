@@ -40,7 +40,13 @@ main {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  position: relative;
+}
+
+.overlay.open {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -62,10 +68,12 @@ nav {
           justify-content: space-between;
 }
 
+/* Nav Menu on mobile*/
 .nav-menu {
   position: absolute;
+  z-index: 2;
   height: 100vh;
-  background-color: pink;
+  background-color: var(--almost-white);
   color: var(--medium-gray);
   top: 0;
   right: 0;
@@ -79,7 +87,7 @@ nav {
 }
 
 .nav-menu-item-container {
-  padding: 1.5rem 0.5rem;
+  padding: 1.5rem 0.5rem 0 0.5rem;
 }
 
 .features,
@@ -102,10 +110,61 @@ nav {
   margin-left: 1rem;
 }
 
-.nav-item {
-  margin-bottom: 1rem;
+.arrow-img.open {
+  background-image: url(images/icon-arrow-up.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
+.nav-item {
+  margin-bottom: 1.5rem;
+}
+
+.nav-item:hover {
+  cursor: pointer;
+  color: var(--almost-black);
+}
+
+/* Features and Company Expanded Menu */
+.features-expanded-list,
+.company-expanded-list {
+  overflow-y: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.features-expanded-list.open,
+.company-expanded-list.open {
+  max-height: 200px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  margin: 0.5rem 1.5rem;
+}
+
+.features-item:hover,
+.company-item:hover {
+  cursor: pointer;
+}
+
+.features-item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-item {
+  margin-bottom: 1.5rem;
+}
+
+/*  Login and Register  */
 .login-register-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,12 +183,99 @@ nav {
   padding: 0.8rem 0;
 }
 
+.login-btn:hover,
+.register-btn:hover {
+  cursor: pointer;
+}
+
 .login-btn {
   border: none;
 }
 
 .register-btn {
   border-radius: 1rem;
+  border: 2px solid var(--medium-gray);
+}
+
+/* Mobile Site */
+.illustration {
+  width: 100%;
+  height: 300px;
+  background-image: url(images/image-hero-mobile.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+.main-content .main-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 2rem 0 1.5rem 0;
+}
+
+.main-content .description {
+  color: var(--medium-gray);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.main-content .learn-more-btn {
+  color: var(--almost-white);
+  background-color: var(--almost-black);
+  font-family: "Epilogue", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.9rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.main-content .learn-more-btn:hover {
+  cursor: pointer;
+  background-color: var(--almost-white);
+  color: var(--almost-black);
+  border: 1px solid var(--almost-black);
+  -webkit-transition: all 0.3ms ease-out;
+  transition: all 0.3ms ease-out;
+}
+
+.client-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2rem;
+}
+
+.client-section .databiz-logo {
+  width: 20%;
+}
+
+.client-section .audiophile-logo {
+  width: 15%;
+}
+
+.client-section .meet-logo {
+  width: 18%;
+}
+
+.client-section .maker-logo {
+  width: 18%;
 }
 
 .hidden {
@@ -143,5 +289,178 @@ nav {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media only screen and (min-width: 1440px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-bottom: 1rem;
+    padding: 2rem 3rem;
+  }
+  nav .nav-logo-menu-bar {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  nav .nav-logo-menu-bar .menu-bar {
+    display: none;
+  }
+  nav .nav-menu {
+    width: 100%;
+    position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 0;
+  }
+  nav .nav-menu .close-menu-icon {
+    display: none;
+  }
+  nav .nav-menu .nav-menu-item-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 2rem;
+    padding: 0;
+    padding-top: 0.2rem;
+    margin-left: 2rem;
+  }
+  nav .nav-menu .nav-menu-item-container .arrow-img {
+    background-position: top left;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+  }
+  nav .nav-menu .nav-menu-item-container .arrow-img.open {
+    background-position: top left;
+  }
+  nav .nav-menu .nav-menu-item-container .features-expanded-list,
+  nav .nav-menu .nav-menu-item-container .company-expanded-list {
+    display: none;
+  }
+  nav .nav-menu .nav-menu-item-container .features-expanded-list.open {
+    display: inline;
+    position: absolute;
+    top: 3rem;
+    left: -3rem;
+    border-radius: 0.5rem;
+    background-color: var(--almost-white);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    margin: 0;
+  }
+  nav .nav-menu .nav-menu-item-container .company-expanded-list.open {
+    display: inline;
+    position: absolute;
+    background-color: var(--almost-white);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    left: 10rem;
+    top: 3rem;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    margin: 0;
+  }
+  nav .nav-menu .login-register-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 1rem;
+    margin-left: auto;
+  }
+  nav .nav-menu .login-register-container .login-btn,
+  nav .nav-menu .login-register-container .register-btn {
+    padding: 0.8rem 1.3rem;
+  }
+  .grid-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 490px;
+        grid-template-columns: 1fr 490px;
+        grid-template-areas: "main illustration" "client illustration";
+    gap: 8rem;
+    margin: 0 7.5rem 0 10.5rem;
+  }
+  .illustration {
+    background-image: url(images/image-hero-desktop.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 2;
+    grid-area: illustration;
+    height: 100%;
+  }
+  .main-content {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: main;
+    text-align: left;
+  }
+  .main-content .main-heading {
+    font-size: 4.75rem;
+    margin-top: 5rem;
+    margin-bottom: 3.5rem;
+  }
+  .main-content .main-heading span {
+    display: block;
+  }
+  .main-content .description {
+    font-size: 1.1rem;
+    padding-right: 2rem;
+    margin-bottom: 3.5rem;
+  }
+  .main-content .learn-more-btn {
+    font-size: 1.2rem;
+    padding: 1.2rem 2rem;
+    margin-bottom: 6.5rem;
+  }
+  .client-section {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: client;
+    gap: 2rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .client-section .audiophile-logo {
+    width: 14%;
+  }
+  .client-section .meet-logo {
+    width: 18%;
+  }
+  .client-section .maker-logo {
+    width: 18%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
