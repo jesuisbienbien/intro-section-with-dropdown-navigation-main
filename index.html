@@ -24,33 +24,36 @@
   <body>
     <main>
       <!-- Navigation bar -->
-      <div class="overlay"></div>
+      <div class="overlay" id="overlay"></div>
       <nav>
         <div class="nav-logo-menu-bar">
           <div class="logo">
             <img src="images/logo.svg" alt="" />
           </div>
-          <div class="menu-bar">
+          <div class="menu-bar" onClick="openSlideMenu()">
             <img src="images/icon-menu.svg" alt="open menu" />
           </div>
         </div>
 
         <!-- Hidden on Mobile section starts here -->
 
-        <div class="nav-menu">
-          <div class="close-menu-icon">
+        <div class="nav-menu" id="nav-menu">
+          <div class="close-menu-icon" onClick="closeSlideMenu()">
             <img src="images/icon-close-menu.svg" alt="close menu" />
           </div>
 
           <!-- Nav Item Section -->
           <div class="nav-menu-item-container">
             <!-- Features -->
-            <div class="features nav-item">
+            <div
+              class="features nav-item"
+              onClick="toggleDropdown('features-expanded-list');"
+            >
               <p>Features</p>
               <div class="arrow-img"></div>
             </div>
 
-            <div class="features-expanded-list">
+            <div class="features-expanded-list" id="features-expanded-list">
               <div class="features-item-container">
                 <img
                   src="images/icon-todo.svg"
@@ -86,12 +89,15 @@
             </div>
 
             <!-- Company -->
-            <div class="company nav-item">
+            <div
+              class="company nav-item"
+              onClick="toggleDropdown('company-expanded-list');"
+            >
               <p>Company</p>
               <div class="arrow-img"></div>
             </div>
 
-            <div class="company-expanded-list">
+            <div class="company-expanded-list" id="company-expanded-list">
               <p class="company-item">History</p>
               <p class="company-item">Our Team</p>
               <p class="company-item">Blog</p>
@@ -153,5 +159,6 @@
         >. Coded by <a href="#">Nguyen Nguyen</a>.
       </div>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>

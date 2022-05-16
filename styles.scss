@@ -24,11 +24,16 @@ main {
   align-items: center;
   text-align: center;
 }
+.overlay {
+  transition: all 0.2s ease-out;
+}
+
 .overlay.open {
   position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in;
 }
 nav {
   width: 100%;
@@ -42,21 +47,35 @@ nav {
 }
 
 /* Nav Menu on mobile*/
+.menu-bar {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .nav-menu {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   height: 100vh;
   background-color: var(--almost-white);
   color: var(--medium-gray);
   top: 0;
   right: 0;
-  width: 65%;
-  padding: 1rem;
+  width: 0;
   text-align: left;
+  transition: all 0.3s ease-out;
   .close-menu-icon {
     text-align: right;
+    &:hover {
+      cursor: pointer;
+    }
   }
+}
+
+.nav-menu.open {
+  width: 65%;
+  padding: 1rem;
+  transition: all 0.3s ease-in;
 }
 
 .nav-menu-item-container {
@@ -176,7 +195,7 @@ nav {
     font-family: "Epilogue", sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    border: none;
+    border: 1px solid var(--almost-black);
     border-radius: 1rem;
     padding: 0.9rem 1.5rem;
     margin-bottom: 2rem;
@@ -255,10 +274,10 @@ nav {
       .nav-menu-item-container {
         display: flex;
         flex-direction: row;
-        gap: 2rem;
+        // gap: 2rem;
         padding: 0;
         padding-top: 0.2rem;
-        margin-left: 2rem;
+        margin-left: 5rem;
         .arrow-img {
           background-position: top left;
           margin-left: 0.5rem;
@@ -267,33 +286,44 @@ nav {
         .arrow-img.open {
           background-position: top left;
         }
-        .features-expanded-list,
-        .company-expanded-list {
-          display: none;
+
+        .features-expanded-list {
+          // display: inline;
+          overflow-y: hidden;
+          position: absolute;
+          z-index: 1;
+          top: 3rem;
+          left: 0;
+          border-radius: 0.5rem;
+          background-color: var(--almost-white);
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          margin: 0;
         }
         .features-expanded-list.open {
-          display: inline;
+          height: 200px;
+          padding: 1.5rem 1.5rem 0 1.5rem;
+        }
+        .company-expanded-list {
+          overflow-y: hidden;
           position: absolute;
-          top: 3rem;
-          left: -3rem;
-          border-radius: 0.5rem;
           background-color: var(--almost-white);
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          padding: 1.5rem 1.5rem 0 1.5rem;
+          left: 12.5rem;
+          top: 3rem;
+          border-radius: 0.5rem;
           margin: 0;
+          transition: all 0.2s ease-out;
         }
         .company-expanded-list.open {
-          display: inline;
-          position: absolute;
-          background-color: var(--almost-white);
-          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-          left: 10rem;
-          top: 3rem;
-          border-radius: 0.5rem;
+          height: 150px;
           padding: 1.5rem 1.5rem 0 1.5rem;
-          margin: 0;
+          transition: all 0.2s ease-in;
+        }
+        .nav-item {
+          margin-right: 2rem;
         }
       }
+
       .login-register-container {
         flex-direction: row;
         gap: 1rem;
