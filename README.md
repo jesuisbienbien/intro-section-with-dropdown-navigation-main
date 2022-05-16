@@ -47,6 +47,55 @@ Users should be able to:
 
 ### What I learned
 
+**_onClick function_**
+
+```html
+<div
+  class="company nav-item"
+  onClick="toggleDropdown('company-expanded-list');"
+>
+  <p>Company</p>
+  <div class="arrow-img"></div>
+</div>
+```
+
+**_overlay effect over the entire page except sidebar_**
+
+```css
+.overlay {
+  transition: all 0.2s ease-out;
+}
+
+.overlay.open {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in;
+}
+```
+
+**_features items dropdown_**
+
+```css
+.features-expanded-list {
+  // display: inline;
+  overflow-y: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 3rem;
+  left: 0;
+  border-radius: 0.5rem;
+  background-color: var(--almost-white);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0;
+}
+.features-expanded-list.open {
+  height: 200px;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+```
+
 ### Continued development
 
 ### Useful resources
