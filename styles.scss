@@ -121,6 +121,7 @@ nav {
 
 .features-expanded-list.open,
 .company-expanded-list.open {
+  overflow-y: auto;
   max-height: 200px;
   transition: all 0.4s;
   margin: 0.5rem 1.5rem;
@@ -242,7 +243,29 @@ nav {
   color: hsl(228, 45%, 44%);
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 768px) {
+  .main-content {
+    .description {
+      padding: 0 10rem;
+    }
+  }
+  .client-section {
+    .databiz-logo {
+      width: 10%;
+    }
+    .audiophile-logo {
+      width: 7%;
+    }
+    .meet-logo {
+      width: 10%;
+    }
+    .maker-logo {
+      width: 10%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1080px) {
   main {
     display: flex;
     flex-direction: column;
@@ -252,13 +275,14 @@ nav {
     display: flex;
     flex-direction: row;
     margin-bottom: 1rem;
+    padding: 2rem 3rem;
+
     .nav-logo-menu-bar {
       width: fit-content;
       .menu-bar {
         display: none;
       }
     }
-    padding: 2rem 3rem;
 
     .nav-menu {
       width: 100%;
@@ -366,7 +390,9 @@ nav {
       }
     }
     .description {
+      max-width: 450px;
       font-size: 1.1rem;
+      padding: 0;
       padding-right: 2rem;
       margin-bottom: 3.5rem;
     }
@@ -380,14 +406,33 @@ nav {
     grid-area: client;
     gap: 2rem;
     justify-content: space-between;
+    .databiz-logo {
+      width: 20%;
+    }
     .audiophile-logo {
-      width: 14%;
+      width: 13%;
     }
     .meet-logo {
-      width: 18%;
+      width: 20%;
     }
     .maker-logo {
-      width: 18%;
+      width: 20%;
+    }
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .client-section {
+    .databiz-logo {
+      width: 15%;
+    }
+    .audiophile-logo {
+      width: 10%;
+    }
+    .meet-logo {
+      width: 13%;
+    }
+    .maker-logo {
+      width: 13%;
     }
   }
 }
